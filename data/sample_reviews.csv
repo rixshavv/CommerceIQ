@@ -1,0 +1,31 @@
+review,sentiment
+"Absolutely love this product, the quality is excellent and delivery was fast",positive
+"Works perfectly and feels premium for the price",positive
+"Very happy with this purchase, would recommend it",positive
+"Great value and amazing customer service",positive
+"The product exceeded my expectations",positive
+"Excellent packaging and arrived earlier than expected",positive
+"Five stars, sturdy design and easy to use",positive
+"Fantastic quality, I am buying another one",positive
+"Good product and smooth overall experience",positive
+"Really useful and reliable, very satisfied",positive
+"Terrible quality, stopped working after two days",negative
+"Very disappointed, the item arrived damaged",negative
+"Not worth the money and customer support was unhelpful",negative
+"Poor build quality and extremely slow delivery",negative
+"I regret buying this, complete waste of money",negative
+"Does not work as advertised, very frustrating",negative
+"Broken packaging and missing parts",negative
+"Bad experience, I want a refund",negative
+"Low quality material and poor performance",negative
+"Awful product, would not recommend",negative
+"The product is okay, nothing special",neutral
+"Average quality for the price",neutral
+"Delivery was on time and the item is as described",neutral
+"It does the basic job but could be better",neutral
+"Not bad but not impressive either",neutral
+"Decent product with a few minor issues",neutral
+"Packaging was normal and quality is acceptable",neutral
+"An ordinary purchase, met my expectations",neutral
+"Usable product, neither great nor terrible",neutral
+"Some features are useful while others need improvement",neutral

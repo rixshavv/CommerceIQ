@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CommerceIQ | Review & Sales Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">C</div><div><b>CommerceIQ</b><small>INTELLIGENCE SUITE</small></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav-item active" href="#overview"><span>▦</span> Overview</a>
+      <a class="nav-item" href="#sentiment"><span>◉</span> Review intelligence</a>
+      <a class="nav-item" href="#forecast"><span>⌁</span> Sales forecasting</a>
+      <div class="sidebar-bottom"><div class="status-dot"></div><span>ML services operational</span><small>v1.0.0</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">WORKSPACE / ANALYTICS</div><h1>Overview</h1><p>Understand customer voice and forecast product demand.</p></div><div class="top-actions"><span class="live-pill"><i></i> LIVE MODEL API</span><div class="avatar">CI</div></div></header>
+      <section id="overview">
+        <div class="section-head"><div><h2>Performance snapshot</h2><p>Insights from reviews analyzed in this workspace.</p></div><button class="btn btn-quiet" id="refreshBtn">↻ Refresh data</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total reviews analyzed</span><span class="stat-icon">▤</span></div><strong id="totalReviews">—</strong><small>All-time predictions stored</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Positive reviews</span><span class="stat-icon green">↗</span></div><strong id="positiveCount">—</strong><small>Predicted positive sentiment</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Neutral reviews</span><span class="stat-icon amber">◌</span></div><strong id="neutralCount">—</strong><small>Predicted neutral sentiment</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Negative reviews</span><span class="stat-icon red">↘</span></div><strong id="negativeCount">—</strong><small>Predicted negative sentiment</small></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel chart-panel"><div class="panel-head"><div><h3>Sentiment distribution</h3><p>Breakdown of analyzed customer reviews</p></div><span class="tag">ALL TIME</span></div><div class="chart-wrap"><div class="donut" id="donut"><div class="donut-center"><strong id="chartTotal">0</strong><span>REVIEWS</span></div></div><div class="legend"><div><i class="legend-dot positive"></i><span>Positive</span><b id="positivePct">0%</b></div><div><i class="legend-dot neutral"></i><span>Neutral</span><b id="neutralPct">0%</b></div><div><i class="legend-dot negative"></i><span>Negative</span><b id="negativePct">0%</b></div></div></div></article>
+          <article class="panel insight-panel"><div class="panel-head"><div><h3>Model information</h3><p>Current prediction services</p></div><span class="tag tag-green">READY</span></div><div class="model-row"><div class="model-icon">NLP</div><div><b>Sentiment classifier</b><small>TF-IDF + Logistic Regression</small></div><span class="ready">● Ready</span></div><div class="model-row"><div class="model-icon purple">ML</div><div><b>Sales forecaster</b><small>Random Forest Regressor</small></div><span class="ready">● Ready</span></div><div class="notice"><b>Demo data notice</b><p>The bundled sales model uses synthetic training data. Retrain it on verified historical sales before using predictions for business decisions.</p></div></article>
+        </div>
+      </section>
+      <section id="sentiment" class="tool-section">
+        <div class="section-head"><div><h2>Review intelligence</h2><p>Classify a customer review and inspect model confidence.</p></div></div>
+        <div class="content-grid tool-grid">
+          <article class="panel form-panel"><div class="panel-head"><div><h3>Analyze a review</h3><p>Enter customer feedback below.</p></div><span class="tag">NLP</span></div><label for="reviewText">CUSTOMER REVIEW</label><textarea id="reviewText" maxlength="5000" placeholder="Example: The product quality is excellent and delivery was very quick..."></textarea><div class="form-footer"><span id="charCount">0 / 5000</span><button class="btn btn-primary" id="analyzeBtn">Analyze sentiment <span>→</span></button></div><div id="sentimentResult" class="result-box hidden"></div></article>
+          <article class="panel recent-panel"><div class="panel-head"><div><h3>Recent reviews</h3><p>Latest predictions saved to the database.</p></div><span class="tag">LATEST 8</span></div><div id="recentReviews" class="recent-list"><div class="empty">No reviews analyzed yet.</div></div></article>
+        </div>
+      </section>
+      <section id="forecast" class="tool-section">
+        <div class="section-head"><div><h2>Sales forecasting</h2><p>Estimate expected units sold from product and campaign inputs.</p></div></div>
+        <div class="content-grid tool-grid">
+          <article class="panel form-panel"><div class="panel-head"><div><h3>Predict product demand</h3><p>Provide product and marketing assumptions.</p></div><span class="tag">REGRESSION</span></div>
+            <form id="salesForm" class="sales-form">
+              <div class="field-grid"><div><label for="price">PRODUCT PRICE (₹)</label><input id="price" type="number" min="1" step="0.01" value="79.99" required></div><div><label for="discount">DISCOUNT (%)</label><input id="discount" type="number" min="0" max="100" step="1" value="15" required></div><div><label for="marketing">MARKETING SPEND (₹)</label><input id="marketing" type="number" min="0" step="1" value="500" required></div><div><label for="rating">AVERAGE RATING (0–5)</label><input id="rating" type="number" min="0" max="5" step="0.1" value="4.2" required></div><div><label for="month">MONTH</label><select id="month"><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11" selected>November</option><option value="12">December</option></select></div></div>
+              <button class="btn btn-primary" type="submit" id="forecastBtn">Generate forecast <span>→</span></button>
+            </form><div id="forecastResult" class="forecast-result hidden"></div>
+          </article>
+          <article class="panel guide-panel"><div class="panel-head"><div><h3>Input guide</h3><p>What each feature represents</p></div></div><div class="guide-item"><b>Product price</b><p>Listed selling price. Higher prices may reduce demand in the demo model.</p></div><div class="guide-item"><b>Discount</b><p>Enter a percentage; the application converts it to a decimal for the model.</p></div><div class="guide-item"><b>Marketing spend</b><p>Campaign budget for the selected forecasting period.</p></div><div class="guide-item"><b>Average rating</b><p>Customer rating on a 0–5 scale.</p></div><div class="guide-item"><b>Month</b><p>Month number used as a simple seasonal feature.</p></div></article>
+        </div>
+      </section>
+      <footer>CommerceIQ · Built with Flask, Scikit-learn and vanilla JavaScript · <span id="apiStatus">Checking API…</span></footer>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
